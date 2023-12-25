@@ -11,4 +11,4 @@ All the code is in Python (so far). Just insall Python and run it using VS Code,
 
 Since each day has two parts, I created a constant in the bottom part of the code file for you to set the part of the question you're running (either `1` or `2` - don't give it invalid input... that's just rude).
 
-Most importantly - **ENJOY**!
+Most importantly - **ENJOY**!!
