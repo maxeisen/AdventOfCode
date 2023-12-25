@@ -7,7 +7,7 @@ So far I've only done a couple solutions in 2023's AOC, but hopefully I can comp
 My first year doing AOC! Tried to organize my files and code as best as I could. The `2023` directory contains a separate directory for each day. Most (if not all) will just have an input file (`input.txt`) and a code file (`dayX.py`).
 
 ## Run it Locally
-All the code is in Python (so far). Just insall Python and run it using VS Code, or an IDE, or even from the command line using `python dayX.py`... I don't care what you do!
+All the code is in Python (so far). Just install Python and run it using VS Code, or an IDE, or even from the command line using `python dayX.py`... I don't care what you do!
 
 Since each day has two parts, I created a constant in the bottom part of the code file for you to set the part of the question you're running (either `1` or `2` - don't give it invalid input... that's just rude).
 
