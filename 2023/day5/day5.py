@@ -12,21 +12,27 @@ def main(part):
       vals = el.split(' ')
       cleanMaps[mapTitle].append({'dest':int(vals[0]),'source':int(vals[1]),'range':int(vals[2])})
 
-  locations = []
+  locations = set()
 
   if part == 1:
     for seed in seeds:
-      locations.append(seedToLocation(seed, cleanMaps))
+      locations.add(seedToLocation(seed, cleanMaps))
   if part == 2:
       seeds = [seeds[i:i+2] for i in range(0,len(seeds),2)]
-      for pair in seeds:
-        for seed in range (pair[0],pair[0]+pair[1]):
-          locations.append(seedToLocation(seed, cleanMaps))
+      for pairNum in range(len(seeds)):
+        pair = seeds[pairNum]
+        seeds[pairNum] = [pair[0],pair[0]+pair[1]-1]
+        pair = seeds[pairNum]
+        minLocation = seedToLocation(pair[0], cleanMaps)
+        for seed in range(pair[0],pair[1]): # Although this is so incredibly inefficient, it did get me the correct solution after a long, long run - TODO: make it more efficient
+          newLocation = seedToLocation(seed, cleanMaps)
+          if newLocation < minLocation:
+            minLocation = newLocation
+        locations.add(minLocation)
 
   return min(locations)
 
 def seedToLocation(seed, cleanMaps):
-  print(seed)
   trackedVal = seed
   for mapTitle in cleanMaps.keys():
     foundInMap = False
