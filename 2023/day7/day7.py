@@ -26,7 +26,6 @@ def main(part):
 #     if handData[hand]['type'] == '5OAK':
 #       handData[hand]['rank'] == 1
 
-if __name__ == "__main__":
-  # Either part 1 or 2 of the problem
-  PART = 2
-  print(main(PART))
+# Either part 1 or 2 of the problem
+PART = 1
+print(main(PART))
