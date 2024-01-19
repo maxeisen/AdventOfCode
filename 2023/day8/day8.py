@@ -1,4 +1,4 @@
-import time
+import math
 
 def main(part):
   lines = open("input.txt", "r").readlines()
@@ -20,28 +20,24 @@ def main(part):
       numSteps+=1
 
   if part == 2:
-    try:
-      visitedNodes = []
-      currentNodes = [node for node in nodeKeys if node[-1] == 'A']
-      zNodesReached = False
-      idealNodeEnds = len(currentNodes)*['Z']
-      while not zNodesReached:
+    currentNodes = [node for node in nodeKeys if node[-1] == 'A']
+    allNumSteps = []
+    for node in currentNodes:
+      currentNode = node
+      while currentNode[-1] != 'Z':
         if stepNum == len(INSTRUCTS):
           stepNum = 0
         step = INSTRUCTS[stepNum]
-        currentNodes = [NODES[node][step] for node in currentNodes]
-        zNodesReached = [node[-1] for node in currentNodes] == idealNodeEnds
-        # if currentNodes in visitedNodes:
-        #   print(currentNodes)
-        # else:
-        #   visitedNodes.append(currentNodes)
+        currentNode = NODES[currentNode][step]
         stepNum+=1
         numSteps+=1
-    except KeyboardInterrupt:
-      print(numSteps)
+      allNumSteps.append(numSteps)
+      numSteps = 0
+
+    return math.lcm(*allNumSteps)
 
   return numSteps
 
 # Either part 1 or 2 of the problem
-PART = 2
+PART = 1
 print(main(PART))
